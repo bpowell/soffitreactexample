@@ -6,10 +6,10 @@ import './index.css';
 
 /* global Java */
 
-window.serverRender = (comments) => {
-        console.log(comments[0].author);
+window.serverRender = (comments, courses) => {
         var data = Java.from(comments);
-        console.log(data[0]);
+        var c = Java.from(courses);
+        console.log(c[0].title);
         return ReactDOMServer.renderToString(<App data={data} />);
 };
 

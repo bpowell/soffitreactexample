@@ -35,8 +35,10 @@ public class MyController {
                 ModelAndView model = soffit.render(req, res, "/hello");
                 List<Comment> comments = new ArrayList<>();
                 comments.add(new Comment("brandon", "hello world"));
+                List<Course> courses = new ArrayList<>();
+                courses.add(new Course("compilers", "cse450"));
 
-                model.addObject("data", react.render(comments));
+                model.addObject("data", react.render(comments, courses));
                 model.addObject("comments", comments);
                 return model;
         }

@@ -29,10 +29,15 @@ public class ReactServer {
                 }
         }
 
-        public String render(Collection<?> args) {
+        public String render(Collection<?>... args) {
                 try {
-                        List list = new ArrayList<>(args);
-                        Object html = engineHolder.invokeFunction("serverRender", list);
+                        Object[] objs = new Object[args.length];
+                        for(int i=0; i<args.length; i++) {
+                                List list = new ArrayList<>(args[i]);
+                                objs[i] = list;
+                        }
+
+                        Object html = engineHolder.invokeFunction("serverRender", objs);
                         return String.valueOf(html);
                 } catch (Exception e) {
                         throw new RuntimeException(e);
