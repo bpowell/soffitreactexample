@@ -29,12 +29,11 @@ public class ReactServer {
                 }
         }
 
-        public String render(Collection<?>... args) {
+        public String render(List<?>... args) {
                 try {
                         Object[] objs = new Object[args.length];
                         for(int i=0; i<args.length; i++) {
-                                List list = new ArrayList<>(args[i]);
-                                objs[i] = list;
+                                objs[i] = args[i];
                         }
 
                         Object html = engineHolder.invokeFunction("serverRender", objs);
