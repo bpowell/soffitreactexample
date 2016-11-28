@@ -29,13 +29,8 @@ public class ReactServer {
                 }
         }
 
-        public String render(List<?>... args) {
+        public String render(Object... objs) {
                 try {
-                        Object[] objs = new Object[args.length];
-                        for(int i=0; i<args.length; i++) {
-                                objs[i] = args[i];
-                        }
-
                         Object html = engineHolder.invokeFunction("serverRender", objs);
                         return String.valueOf(html);
                 } catch (Exception e) {

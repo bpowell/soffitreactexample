@@ -8,8 +8,8 @@ import './index.css';
 
 window.serverRender = (comments, courses) => {
         var data = Java.from(comments);
-        var c = Java.from(courses);
-        console.log(c[0].title);
+        //var c = Java.from(courses);
+        console.log(courses.hello);
         return ReactDOMServer.renderToString(<App data={data} />);
 };
 

@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 @Controller
 @ReactApplication
@@ -38,7 +40,10 @@ public class MyController {
                 List<Course> courses = new ArrayList<>();
                 courses.add(new Course("compilers", "cse450"));
 
-                model.addObject("data", react.render(comments, courses));
+                Map<String, String> test = new HashMap<>();
+                test.put("hello", "world");
+
+                model.addObject("data", react.render(comments, test));
                 model.addObject("comments", comments);
                 return model;
         }
